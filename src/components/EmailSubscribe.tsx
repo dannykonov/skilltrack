@@ -39,6 +39,10 @@ export default function EmailSubscribe({
     setErrorMessage('');
 
     try {
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        throw new Error('Supabase configuration is missing');
+      }
+
       const { error } = await supabase
         .from('emails')
         .insert([{ email: data.email }]);
