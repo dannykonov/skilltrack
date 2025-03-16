@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-white">SkillTrack AI</h2>
-            <p className="mt-2">Your personalized AI learning roadmap</p>
+            <h2 className="text-2xl font-bold text-white">SkillTrack</h2>
+            <p className="mt-2">Eliminate decision fatigue with AI-powered learning paths</p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-6 md:gap-10">
@@ -37,12 +37,13 @@ export default function Footer() {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-400" viewBox="0 0 20 20" fill="currentColor">
               <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
             </svg>
-            2,500+ Users
+            3,000+ Users
           </div>
         </div>
         
         <div className="mt-10 pt-6 border-t border-gray-800 text-center text-sm">
-          <p>&copy; {currentYear} SkillTrack AI. All rights reserved.</p>
+          <p>&copy; {currentYear} SkillTrack. All rights reserved.</p>
+          <p className="mt-2">Stop wasting time searching. Start learning with purpose.</p>
         </div>
       </div>
     </footer>
