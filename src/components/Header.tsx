@@ -15,14 +15,17 @@ export default function Header() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-blue-600">SkillTrack AI</a>
+            <a href="/" className="flex items-center">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">SkillTrack AI</span>
+              <span className="ml-2 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">Beta</span>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#how-it-works" className="text-gray-600 hover:text-blue-600 transition-colors">How It Works</a>
             <a href="#benefits" className="text-gray-600 hover:text-blue-600 transition-colors">Benefits</a>
-            <a href="#cta" className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Join Waitlist</a>
+            <a href="#cta" className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">Join Waitlist</a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -63,7 +66,7 @@ export default function Header() {
             </a>
             <a 
               href="#cta" 
-              className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors w-full text-center"
+              className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors w-full text-center shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               Join Waitlist

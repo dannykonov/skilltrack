@@ -67,7 +67,7 @@ export default function EmailSubscribe({
   return (
     <div className={cn("w-full max-w-md mx-auto", className)}>
       {status === 'success' ? (
-        <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center">
+        <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center animate-fade-in">
           <p className="font-medium">Thank you for joining the waitlist!</p>
           <p className="text-sm mt-1">We'll notify you when SkillTrack AI launches.</p>
         </div>
@@ -91,7 +91,10 @@ export default function EmailSubscribe({
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70"
+            className={cn(
+              "px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70",
+              status !== 'loading' && "animate-pulse-slow"
+            )}
           >
             {status === 'loading' ? 'Submitting...' : buttonText}
           </button>
