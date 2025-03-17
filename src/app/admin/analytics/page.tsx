@@ -4,14 +4,21 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
 // Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+let supabase: any;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
-}
+// We can safely access the window object here because this is a client component ('use client')
+// and the component won't be executed during server-side rendering
+const initializeSupabase = () => {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.error('Missing Supabase environment variables');
+    return null;
+  }
+
+  return createClient(supabaseUrl, supabaseAnonKey);
+};
 
 interface DailyClickCount {
   day: string;
@@ -40,6 +47,14 @@ export default function AnalyticsDashboard() {
   const [uniqueVisitors, setUniqueVisitors] = useState(0);
   
   useEffect(() => {
+    // Initialize Supabase client on component mount
+    supabase = initializeSupabase();
+    
+    if (!supabase) {
+      setIsLoading(false);
+      return;
+    }
+    
     async function fetchAnalytics() {
       setIsLoading(true);
       try {
@@ -88,7 +103,7 @@ export default function AnalyticsDashboard() {
         if (uniqueError) throw uniqueError;
         
         // Count unique IP addresses
-        const uniqueIps = new Set(uniqueData?.map(item => item.ip_address));
+        const uniqueIps = new Set(uniqueData?.map((item: { ip_address: string }) => item.ip_address));
         setUniqueVisitors(uniqueIps.size);
       } catch (error) {
         console.error('Error fetching analytics:', error);

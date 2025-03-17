@@ -1,14 +1,34 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Initialize Supabase client (only on client-side)
+let supabase: any;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
+// Only initialize Supabase on the client
+if (typeof window !== 'undefined') {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (supabaseUrl && supabaseAnonKey) {
+    supabase = createClient(supabaseUrl, supabaseAnonKey);
+  } else {
+    console.warn('Missing Supabase environment variables');
+    // Create a no-op version of supabase for the client
+    supabase = {
+      from: () => ({
+        insert: () => Promise.resolve({ error: null }),
+        select: () => Promise.resolve({ data: [], error: null }),
+      }),
+    };
+  }
+} else {
+  // Create a no-op version of supabase for the server
+  supabase = {
+    from: () => ({
+      insert: () => Promise.resolve({ error: null }),
+      select: () => Promise.resolve({ data: [], error: null }),
+    }),
+  };
 }
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Interface for click data
 interface ClickData {
@@ -25,12 +45,13 @@ interface ClickData {
  * Track a click event
  */
 export async function trackClick(data: ClickData): Promise<void> {
+  // Only track clicks on the client side
+  if (typeof window === 'undefined') return;
+  
   try {
     // Add user agent and referrer if available
-    if (typeof window !== 'undefined') {
-      data.user_agent = window.navigator.userAgent;
-      data.referrer = document.referrer;
-    }
+    data.user_agent = window.navigator.userAgent;
+    data.referrer = document.referrer;
     
     // Insert the click data into Supabase
     const { error } = await supabase
