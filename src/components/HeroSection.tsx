@@ -9,10 +9,10 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight animate-fade-in">
-            Too Many Courses, No Clear Path? SkillTrack Gives You an AI-Powered Learning Roadmap.
+            You Know What You Want to Learn—We'll Show You How.
           </h1>
           <p className="mt-6 text-xl text-gray-600 leading-relaxed animate-fade-in-delay-1">
-            The internet is full of learning resources—but no clear starting point. SkillTrack eliminates decision fatigue by testing what you already know and generating a structured, step-by-step learning plan tailored to your goals.
+            You already have the ambition. But where do you start? SkillTrack builds a personalized, step-by-step roadmap so you can learn efficiently, avoid information overload, and make real progress.
           </p>
           
           {/* Trust signal */}
@@ -26,7 +26,7 @@ export default function HeroSection() {
           </div>
           
           <div className="mt-8 mb-8 animate-fade-in-delay-2">
-            <EmailSubscribe buttonText="Get My AI Learning Plan" />
+            <EmailSubscribe buttonText="Start Learning Smarter" />
           </div>
           
           {/* Visual representation: Before vs After */}
@@ -37,17 +37,24 @@ export default function HeroSection() {
                 <div className="absolute top-2 left-2 bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded">
                   BEFORE
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Overwhelmed by Options</h3>
-                <div className="grid grid-cols-3 gap-2">
-                  {[...Array(9)].map((_, i) => (
-                    <div key={i} className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm">
-                      Course {i+1}
-                    </div>
-                  ))}
+                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Unstructured Learning</h3>
+                <div className="space-y-2">
+                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
+                    <span className="mr-2">📚</span> Where do I start?
+                  </div>
+                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
+                    <span className="mr-2">🤔</span> What resources are best?
+                  </div>
+                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
+                    <span className="mr-2">😩</span> How do I track progress?
+                  </div>
+                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
+                    <span className="mr-2">⏱️</span> Am I learning efficiently?
+                  </div>
                 </div>
                 <div className="mt-4 text-center">
                   <div className="inline-block bg-red-50 text-red-700 text-sm px-3 py-1 rounded-full">
-                    Decision Fatigue 😩
+                    Confusion & Frustration 😩
                   </div>
                 </div>
               </div>
@@ -57,24 +64,24 @@ export default function HeroSection() {
                 <div className="absolute top-2 left-2 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">
                   AFTER
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Clear Learning Path</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Structured Learning Path</h3>
                 <div className="space-y-2">
                   <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">1</div>
-                    <span>Introduction to Topic</span>
+                    <span>Foundations (3 days)</span>
                   </div>
                   <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">2</div>
-                    <span>Core Concepts</span>
+                    <span>Core Concepts (7 days)</span>
                   </div>
                   <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">3</div>
-                    <span>Practical Application</span>
+                    <span>Practical Application (10 days)</span>
                   </div>
                 </div>
                 <div className="mt-4 text-center">
                   <div className="inline-block bg-green-50 text-green-700 text-sm px-3 py-1 rounded-full">
-                    Clear Progress 🚀
+                    Clear Progress & Confidence 🚀
                   </div>
                 </div>
               </div>

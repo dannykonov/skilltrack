@@ -1,73 +1,96 @@
 'use client';
 
 export default function SocialProof() {
-  const testimonials = [
-    {
-      quote: "I was spending more time searching for courses than actually learning. SkillTrack eliminated that decision fatigue and gave me a clear path to follow. I've learned more in 2 months than I did all last year.",
-      author: "Sarah J., UX Designer",
-      stars: 5
-    },
-    {
-      quote: "As a busy professional, I don't have time to sift through thousands of resources. SkillTrack tested my knowledge gaps and created a personalized plan that's actually helping me progress.",
-      author: "Michael T., Marketing Manager",
-      stars: 5
-    },
-    {
-      quote: "The step-by-step approach is genius. I'm no longer overwhelmed by options, and the AI adjusts my learning path as I go. It's like having a personal learning coach.",
-      author: "Priya K., Data Scientist",
-      stars: 5
-    }
-  ];
-
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Real People, Real Results</h2>
-          <p className="mt-4 text-xl text-gray-600">See how SkillTrack eliminates decision fatigue and accelerates learning</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Learning Transformed</h2>
+          <p className="mt-4 text-xl text-gray-600">See how our structured approach helps people learn more effectively</p>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-8 rounded-xl shadow-md">
-              <div className="flex mb-4">
-                {[...Array(testimonial.stars)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
-              <div className="font-medium text-gray-900">{testimonial.author}</div>
-            </div>
-          ))}
-        </div>
-
+        
         {/* Stats */}
-        <div className="mt-20 grid md:grid-cols-3 gap-8 text-center">
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <div className="text-4xl font-bold text-blue-600 mb-2">87%</div>
-            <p className="text-gray-700">of users report reduced decision fatigue when learning online</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+            <div className="text-4xl font-bold text-blue-600 mb-2">3.2x</div>
+            <p className="text-gray-700">Faster skill acquisition compared to unstructured learning</p>
           </div>
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <div className="text-4xl font-bold text-blue-600 mb-2">3.5x</div>
-            <p className="text-gray-700">faster skill acquisition compared to self-directed learning</p>
+          
+          <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+            <div className="text-4xl font-bold text-blue-600 mb-2">85%</div>
+            <p className="text-gray-700">Higher course completion rate with structured learning paths</p>
           </div>
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <div className="text-4xl font-bold text-blue-600 mb-2">92%</div>
-            <p className="text-gray-700">completion rate for SkillTrack learning paths</p>
+          
+          <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+            <div className="text-4xl font-bold text-blue-600 mb-2">94%</div>
+            <p className="text-gray-700">Of users report better understanding of complex topics</p>
           </div>
         </div>
-
-        {/* Logos */}
-        <div className="mt-20">
-          <p className="text-center text-gray-500 mb-8">Trusted by learners from leading companies</p>
+        
+        {/* Testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="bg-white p-8 rounded-xl shadow-sm">
+            <div className="flex items-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              ))}
+            </div>
+            <p className="text-gray-700 mb-4">
+              "I was jumping between tutorials without making real progress. SkillTrack's structured approach showed me exactly how to build on concepts step-by-step. Now I understand the 'why' behind everything I learn."
+            </p>
+            <div className="font-medium text-gray-900">Sarah J., Data Scientist</div>
+          </div>
+          
+          <div className="bg-white p-8 rounded-xl shadow-sm">
+            <div className="flex items-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              ))}
+            </div>
+            <p className="text-gray-700 mb-4">
+              "The structured learning path was a game-changer. Instead of wasting time figuring out what to learn next, I followed SkillTrack's roadmap and mastered Python in half the time I expected."
+            </p>
+            <div className="font-medium text-gray-900">Michael T., Software Engineer</div>
+          </div>
+          
+          <div className="bg-white p-8 rounded-xl shadow-sm">
+            <div className="flex items-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              ))}
+            </div>
+            <p className="text-gray-700 mb-4">
+              "As a busy professional, I needed an efficient way to learn new skills. SkillTrack's structured approach eliminated wasted time and kept me focused on exactly what I needed to learn next."
+            </p>
+            <div className="font-medium text-gray-900">Priya K., Marketing Director</div>
+          </div>
+        </div>
+        
+        {/* Trusted By */}
+        <div className="text-center">
+          <p className="text-gray-500 mb-6">Trusted by learners from top companies</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-            <div className="h-8 text-gray-400 font-bold">GOOGLE</div>
-            <div className="h-8 text-gray-400 font-bold">MICROSOFT</div>
-            <div className="h-8 text-gray-400 font-bold">AMAZON</div>
-            <div className="h-8 text-gray-400 font-bold">META</div>
-            <div className="h-8 text-gray-400 font-bold">APPLE</div>
+            <div className="h-8">
+              <img src="/logos/google.svg" alt="Google" className="h-full" />
+            </div>
+            <div className="h-8">
+              <img src="/logos/microsoft.svg" alt="Microsoft" className="h-full" />
+            </div>
+            <div className="h-8">
+              <img src="/logos/amazon.svg" alt="Amazon" className="h-full" />
+            </div>
+            <div className="h-8">
+              <img src="/logos/meta.svg" alt="Meta" className="h-full" />
+            </div>
+            <div className="h-8">
+              <img src="/logos/apple.svg" alt="Apple" className="h-full" />
+            </div>
           </div>
         </div>
       </div>
