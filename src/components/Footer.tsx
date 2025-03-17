@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">SkillTrack</h3>
+            <h3 className="text-xl font-bold mb-4">Learn With AI</h3>
             <p className="text-gray-400 mb-4">Learn more effectively with structured, step-by-step learning paths tailored to your goals.</p>
             <div className="flex items-center text-sm text-gray-400">
               <div className="flex items-center mr-4">
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          <p>© 2025 SkillTrack. All rights reserved.</p>
+          <p>© 2025 Learn With AI. All rights reserved.</p>
           <p className="mt-2">Learn smarter, not harder. Master any skill with a structured approach.</p>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function CallToAction() {
             Master Any Skill with a Clear Learning Strategy
           </h2>
           <p className="text-xl mb-8">
-            Stop wasting time with unstructured learning. SkillTrack creates a personalized, step-by-step roadmap that shows you exactly HOW to learn efficiently and effectively.
+            Stop wasting time with unstructured learning. Learn With AI creates a personalized, step-by-step roadmap that shows you exactly HOW to learn efficiently and effectively.
           </p>
           
           <div className="bg-white/10 rounded-lg p-6 mb-10 backdrop-blur-sm" ref={emailRef}>
@@ -35,7 +35,7 @@ export default function CallToAction() {
               </div>
               <div className="text-left">
                 <p className="italic text-white/90 mb-2">
-                  "I've tried dozens of online courses but always got stuck halfway through. SkillTrack's structured approach changed everything - it broke down complex topics into manageable steps and showed me exactly how to progress. I've learned more in 3 weeks than in the previous 6 months of self-study."
+                  "I've tried dozens of online courses but always got stuck halfway through. Learn With AI's structured approach changed everything - it broke down complex topics into manageable steps and showed me exactly how to progress. I've learned more in 3 weeks than in the previous 6 months of self-study."
                 </p>
                 <p className="font-medium">— Alex K., Software Developer</p>
               </div>

@@ -49,7 +49,7 @@ export default function BenefitsSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Learn More Effectively</h2>
-          <p className="mt-4 text-xl text-gray-600">SkillTrack transforms how you learn with these powerful features</p>
+          <p className="mt-4 text-xl text-gray-600">Learn With AI transforms how you learn with these powerful features</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -62,9 +62,9 @@ export default function BenefitsSection() {
           ))}
         </div>
         
-        {/* Who is SkillTrack for? */}
+        {/* Who is Learn With AI for? */}
         <div className="mt-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-12">Who Benefits Most from SkillTrack?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-12">Who Benefits Most from Learn With AI?</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-blue-50 p-8 rounded-xl">

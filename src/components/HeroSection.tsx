@@ -12,7 +12,7 @@ export default function HeroSection() {
             You Know What You Want to Learn—We'll Show You How.
           </h1>
           <p className="mt-6 text-xl text-gray-600 leading-relaxed animate-fade-in-delay-1">
-            You already have the ambition. But where do you start? SkillTrack builds a personalized, step-by-step roadmap so you can learn efficiently, avoid information overload, and make real progress.
+            You already have the ambition. But where do you start? Learn With AI builds a personalized, step-by-step roadmap so you can learn efficiently, avoid information overload, and make real progress.
           </p>
           
           {/* Trust signal */}

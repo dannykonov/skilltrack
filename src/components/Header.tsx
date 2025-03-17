@@ -13,7 +13,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl font-bold text-blue-600">
-              SkillTrack
+              Learn With AI
             </Link>
           </div>
           

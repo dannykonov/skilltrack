@@ -38,7 +38,7 @@ export default function HowItWorks() {
     <section className="py-20 bg-gray-50" id="how-it-works">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">How SkillTrack Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">How Learn With AI Works</h2>
           <p className="mt-4 text-xl text-gray-600">From confusion to clarity in five simple steps</p>
         </div>
 
@@ -51,7 +51,7 @@ export default function HowItWorks() {
           
           <h3 className="text-2xl font-semibold text-green-600 mt-8 mb-4">The Solution</h3>
           <p className="text-lg text-gray-700">
-            SkillTrack builds a structured, AI-powered learning roadmap tailored to your goals, knowledge level, and learning style—so you always know exactly what to do next. No more confusion, just clear steps toward mastery.
+            Learn With AI builds a structured, AI-powered learning roadmap tailored to your goals, knowledge level, and learning style—so you always know exactly what to do next. No more confusion, just clear steps toward mastery.
           </p>
         </div>
 

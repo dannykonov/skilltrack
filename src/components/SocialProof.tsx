@@ -38,7 +38,7 @@ export default function SocialProof() {
               ))}
             </div>
             <p className="text-gray-700 mb-4">
-              "I was jumping between tutorials without making real progress. SkillTrack's structured approach showed me exactly how to build on concepts step-by-step. Now I understand the 'why' behind everything I learn."
+              "I was jumping between tutorials without making real progress. Learn With AI's structured approach showed me exactly how to build on concepts step-by-step. Now I understand the 'why' behind everything I learn."
             </p>
             <div className="font-medium text-gray-900">Sarah J., Data Scientist</div>
           </div>
@@ -52,7 +52,7 @@ export default function SocialProof() {
               ))}
             </div>
             <p className="text-gray-700 mb-4">
-              "The structured learning path was a game-changer. Instead of wasting time figuring out what to learn next, I followed SkillTrack's roadmap and mastered Python in half the time I expected."
+              "The structured learning path was a game-changer. Instead of wasting time figuring out what to learn next, I followed Learn With AI's roadmap and mastered Python in half the time I expected."
             </p>
             <div className="font-medium text-gray-900">Michael T., Software Engineer</div>
           </div>
@@ -66,7 +66,7 @@ export default function SocialProof() {
               ))}
             </div>
             <p className="text-gray-700 mb-4">
-              "As a busy professional, I needed an efficient way to learn new skills. SkillTrack's structured approach eliminated wasted time and kept me focused on exactly what I needed to learn next."
+              "As a busy professional, I needed an efficient way to learn new skills. Learn With AI's structured approach eliminated wasted time and kept me focused on exactly what I needed to learn next."
             </p>
             <div className="font-medium text-gray-900">Priya K., Marketing Director</div>
           </div>
