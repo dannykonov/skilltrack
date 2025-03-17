@@ -83,7 +83,7 @@ export default function EmailSubscribe({
       ) : (
         <div className="text-center p-4 bg-green-100 text-green-800 rounded-lg">
           <p className="font-medium">Thank you for subscribing!</p>
-          <p className="text-sm mt-1">We'll keep you updated on our launch.</p>
+          <p className="text-sm mt-1">We'll keep you updated on the Learn With AI launch.</p>
         </div>
       )}
     </div>
