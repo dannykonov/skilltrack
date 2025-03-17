@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import PageViewTracker from '../components/PageViewTracker';
 
@@ -25,8 +26,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <PageViewTracker />
-        {children}
+        <Suspense fallback={null}>
+          <PageViewTracker />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {children}
+        </Suspense>
       </body>
     </html>
   );
