@@ -65,16 +65,16 @@ export default function EmailSubscribe({
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 bg-white placeholder-gray-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={isSubmitting}
             />
-            {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+            {error && <p className="mt-1 text-sm text-red-500 bg-white/80 rounded px-1">{error}</p>}
           </div>
           <button
             type="submit"
-            className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+            className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 border border-white/20"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Submitting...' : buttonText}

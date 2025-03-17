@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import PageViewTracker from '@/components/PageViewTracker';
+import PageViewTracker from '../components/PageViewTracker';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <PageViewTracker />
         {children}
