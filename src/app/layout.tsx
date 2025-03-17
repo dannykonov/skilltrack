@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import PageViewTracker from '@/components/PageViewTracker';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SkillTrack AI - Master Any Skill with AI-Powered Learning Paths",
-  description: "Tell us your goals, and SkillTrack AI will create a structured roadmap with the best resources and deadlines.",
+  title: "Learn With AI - Master Any Skill with a Clear Learning Strategy",
+  description: "Learn With AI creates a personalized, step-by-step roadmap that shows you exactly HOW to learn efficiently and effectively.",
   keywords: ["AI learning", "skill development", "personalized learning", "learning paths", "education technology"],
 };
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <PageViewTracker />
         {children}
       </body>
     </html>

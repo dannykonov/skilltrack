@@ -1,108 +1,90 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { supabase } from '@/lib/supabase';
-import { cn } from '@/lib/utils';
+import { trackButtonClick } from '@/lib/tracking';
 
-const subscribeSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-});
-
-type SubscribeFormValues = z.infer<typeof subscribeSchema>;
-
-interface EmailSubscribeProps {
+export interface EmailSubscribeProps {
   buttonText?: string;
   className?: string;
+  onSubscribe?: (email: string) => void;
 }
 
 export default function EmailSubscribe({ 
-  buttonText = "Join the Waitlist", 
-  className 
+  buttonText = 'Subscribe', 
+  className = '',
+  onSubscribe
 }: EmailSubscribeProps) {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<SubscribeFormValues>({
-    resolver: zodResolver(subscribeSchema),
-  });
-
-  const onSubmit = async (data: SubscribeFormValues) => {
-    setStatus('loading');
-    setErrorMessage('');
-
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      setError('Please enter your email');
+      return;
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError('Please enter a valid email');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setError('');
+    
     try {
-      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-        throw new Error('Supabase configuration is missing');
+      // Track the email subscription
+      trackButtonClick('email_subscribe', 'Email Subscription', 'email_form');
+      
+      // Call the onSubscribe callback if provided
+      if (onSubscribe) {
+        onSubscribe(email);
       }
-
-      const { error } = await supabase
-        .from('emails')
-        .insert([{ email: data.email }]);
-
-      if (error) {
-        if (error.code === '23505') { // Unique violation error code
-          setStatus('success'); // Treat duplicate emails as success to avoid revealing if an email is already registered
-        } else {
-          throw error;
-        }
-      } else {
-        setStatus('success');
-        reset();
-      }
-    } catch (error) {
-      console.error('Error submitting email:', error);
-      setStatus('error');
-      setErrorMessage('Failed to submit email. Please try again later.');
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setIsSuccess(true);
+      setEmail('');
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+      console.error('Error submitting email:', err);
+    } finally {
+      setIsSubmitting(false);
     }
   };
-
+  
   return (
-    <div className={cn("w-full max-w-md mx-auto", className)}>
-      {status === 'success' ? (
-        <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center animate-fade-in">
-          <p className="font-medium">Thank you for joining the waitlist!</p>
-          <p className="text-sm mt-1">We'll notify you when SkillTrack AI launches.</p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-2">
-          <div className="flex-1">
+    <div className={className}>
+      {!isSuccess ? (
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+          <div className="flex-grow">
             <input
-              {...register('email')}
               type="email"
               placeholder="Enter your email"
-              className={cn(
-                "w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500",
-                errors.email ? "border-red-300" : "border-gray-300"
-              )}
-              disabled={status === 'loading'}
+              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={isSubmitting}
             />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-            )}
+            {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
           </div>
           <button
             type="submit"
-            disabled={status === 'loading'}
-            className={cn(
-              "px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70",
-              status !== 'loading' && "animate-pulse-slow"
-            )}
+            className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+            disabled={isSubmitting}
           >
-            {status === 'loading' ? 'Submitting...' : buttonText}
+            {isSubmitting ? 'Submitting...' : buttonText}
           </button>
         </form>
-      )}
-      
-      {status === 'error' && (
-        <p className="mt-2 text-sm text-red-600">{errorMessage}</p>
+      ) : (
+        <div className="text-center p-4 bg-green-100 text-green-800 rounded-lg">
+          <p className="font-medium">Thank you for subscribing!</p>
+          <p className="text-sm mt-1">We'll keep you updated on our launch.</p>
+        </div>
       )}
     </div>
   );

@@ -2,12 +2,17 @@
 
 import EmailSubscribe from './EmailSubscribe';
 import { useRef } from 'react';
+import { trackButtonClick } from '@/lib/tracking';
+import TrackableButton from './TrackableButton';
+import { useTracking } from '@/hooks/useTracking';
 
 export default function CallToAction() {
   const emailRef = useRef<HTMLDivElement>(null);
+  const { trackClick } = useTracking({ sectionId: 'cta' });
   
   const scrollToEmail = () => {
     emailRef.current?.scrollIntoView({ behavior: 'smooth' });
+    trackClick('scroll_to_email', 'Transform How You Learn');
   };
   
   return (
@@ -23,7 +28,12 @@ export default function CallToAction() {
           
           <div className="bg-white/10 rounded-lg p-6 mb-10 backdrop-blur-sm" ref={emailRef}>
             <p className="text-lg font-medium mb-2">Join 3,000+ learners already learning smarter</p>
-            <EmailSubscribe buttonText="Start Learning Smarter" />
+            <EmailSubscribe 
+              buttonText="Start Learning Smarter" 
+              onSubscribe={(email) => {
+                trackClick('email_subscribe', `Email: ${email.substring(0, 3)}***`);
+              }}
+            />
           </div>
           
           <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
@@ -44,12 +54,15 @@ export default function CallToAction() {
         </div>
         
         <div className="text-center mt-12">
-          <button 
+          <TrackableButton
+            trackingId="cta_transform_button"
+            sectionId="cta"
+            variant="secondary"
+            size="lg"
             onClick={scrollToEmail}
-            className="inline-block px-8 py-4 bg-white text-blue-700 font-bold rounded-lg shadow-lg hover:bg-blue-50 transition-colors"
           >
             Transform How You Learn
-          </button>
+          </TrackableButton>
         </div>
       </div>
     </section>

@@ -2,9 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { trackButtonClick } from '@/lib/tracking';
+import TrackableButton from './TrackableButton';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleNavClick = (linkId: string, linkText: string) => {
+    trackButtonClick(`nav_${linkId}`, linkText, 'header');
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <header id="top" className="bg-white shadow-sm sticky top-0 z-50">
@@ -12,32 +21,52 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold text-blue-600">
+            <Link 
+              href="/" 
+              className="text-xl font-bold text-blue-600"
+              onClick={() => trackButtonClick('logo', 'Learn With AI', 'header')}
+            >
               Learn With AI
             </Link>
           </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="#how-it-works" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <Link 
+              href="#how-it-works" 
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              onClick={() => handleNavClick('how_it_works', 'How It Works')}
+            >
               How It Works
             </Link>
-            <Link href="#benefits" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <Link 
+              href="#benefits" 
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              onClick={() => handleNavClick('features', 'Features')}
+            >
               Features
             </Link>
-            <Link href="#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors">
+            <Link 
+              href="#testimonials" 
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              onClick={() => handleNavClick('testimonials', 'Testimonials')}
+            >
               Testimonials
             </Link>
           </nav>
           
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link 
-              href="#cta" 
-              className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            <TrackableButton
+              trackingId="header_cta"
+              sectionId="header"
+              onClick={() => {
+                document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-4 py-2 text-sm"
             >
               Start Learning Smarter
-            </Link>
+            </TrackableButton>
           </div>
           
           {/* Mobile menu button */}
@@ -45,7 +74,10 @@ export default function Header() {
             <button 
               type="button" 
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+                trackButtonClick('mobile_menu_toggle', isMenuOpen ? 'Close Menu' : 'Open Menu', 'header');
+              }}
             >
               <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (
@@ -69,31 +101,35 @@ export default function Header() {
             <Link 
               href="#how-it-works" 
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavClick('mobile_how_it_works', 'How It Works')}
             >
               How It Works
             </Link>
             <Link 
               href="#benefits" 
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavClick('mobile_features', 'Features')}
             >
               Features
             </Link>
             <Link 
               href="#testimonials" 
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => handleNavClick('mobile_testimonials', 'Testimonials')}
             >
               Testimonials
             </Link>
-            <Link 
-              href="#cta" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
-              onClick={() => setIsMenuOpen(false)}
+            <TrackableButton
+              trackingId="mobile_header_cta"
+              sectionId="header"
+              onClick={() => {
+                document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
+              className="block w-full text-center px-3 py-2 rounded-md text-base font-medium"
             >
               Start Learning Smarter
-            </Link>
+            </TrackableButton>
           </div>
         </div>
       )}
