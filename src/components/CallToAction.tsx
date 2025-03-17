@@ -1,10 +1,17 @@
 'use client';
 
 import EmailSubscribe from './EmailSubscribe';
+import { useRef } from 'react';
 
 export default function CallToAction() {
+  const emailRef = useRef<HTMLDivElement>(null);
+  
+  const scrollToEmail = () => {
+    emailRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white" id="cta">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -14,7 +21,7 @@ export default function CallToAction() {
             Stop wasting time with unstructured learning. SkillTrack creates a personalized, step-by-step roadmap that shows you exactly HOW to learn efficiently and effectively.
           </p>
           
-          <div className="bg-white/10 rounded-lg p-6 mb-10 backdrop-blur-sm">
+          <div className="bg-white/10 rounded-lg p-6 mb-10 backdrop-blur-sm" ref={emailRef}>
             <p className="text-lg font-medium mb-2">Join 3,000+ learners already learning smarter</p>
             <EmailSubscribe buttonText="Start Learning Smarter" />
           </div>
@@ -37,12 +44,12 @@ export default function CallToAction() {
         </div>
         
         <div className="text-center mt-12">
-          <a 
-            href="#top" 
+          <button 
+            onClick={scrollToEmail}
             className="inline-block px-8 py-4 bg-white text-blue-700 font-bold rounded-lg shadow-lg hover:bg-blue-50 transition-colors"
           >
             Transform How You Learn
-          </a>
+          </button>
         </div>
       </div>
     </section>

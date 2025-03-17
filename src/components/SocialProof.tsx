@@ -2,7 +2,7 @@
 
 export default function SocialProof() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50" id="testimonials">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Learning Transformed</h2>
@@ -28,7 +28,7 @@ export default function SocialProof() {
         </div>
         
         {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-xl shadow-sm">
             <div className="flex items-center mb-4">
               {[...Array(5)].map((_, i) => (
@@ -69,28 +69,6 @@ export default function SocialProof() {
               "As a busy professional, I needed an efficient way to learn new skills. SkillTrack's structured approach eliminated wasted time and kept me focused on exactly what I needed to learn next."
             </p>
             <div className="font-medium text-gray-900">Priya K., Marketing Director</div>
-          </div>
-        </div>
-        
-        {/* Trusted By */}
-        <div className="text-center">
-          <p className="text-gray-500 mb-6">Trusted by learners from top companies</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-            <div className="h-8">
-              <img src="/logos/google.svg" alt="Google" className="h-full" />
-            </div>
-            <div className="h-8">
-              <img src="/logos/microsoft.svg" alt="Microsoft" className="h-full" />
-            </div>
-            <div className="h-8">
-              <img src="/logos/amazon.svg" alt="Amazon" className="h-full" />
-            </div>
-            <div className="h-8">
-              <img src="/logos/meta.svg" alt="Meta" className="h-full" />
-            </div>
-            <div className="h-8">
-              <img src="/logos/apple.svg" alt="Apple" className="h-full" />
-            </div>
           </div>
         </div>
       </div>

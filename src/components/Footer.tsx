@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          <p>© 2023 SkillTrack. All rights reserved.</p>
+          <p>© 2025 SkillTrack. All rights reserved.</p>
           <p className="mt-2">Learn smarter, not harder. Master any skill with a structured approach.</p>
         </div>
       </div>
