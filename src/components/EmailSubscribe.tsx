@@ -2,17 +2,20 @@
 
 import { useState } from 'react';
 import { trackButtonClick } from '@/lib/tracking';
+import { saveSubscriber } from '@/lib/subscriptions';
 
 export interface EmailSubscribeProps {
   buttonText?: string;
   className?: string;
   onSubscribe?: (email: string) => void;
+  source?: string;
 }
 
 export default function EmailSubscribe({ 
   buttonText = 'Subscribe', 
   className = '',
-  onSubscribe
+  onSubscribe,
+  source = 'website'
 }: EmailSubscribeProps) {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,13 +42,30 @@ export default function EmailSubscribe({
       // Track the email subscription
       trackButtonClick('email_subscribe', 'Email Subscription', 'email_form');
       
+      // Save the email to Supabase
+      const result = await saveSubscriber({
+        email,
+        source,
+        metadata: {
+          page: typeof window !== 'undefined' ? window.location.pathname : '',
+          referrer: typeof window !== 'undefined' ? document.referrer : '',
+        }
+      });
+      
+      if (!result.success) {
+        if (result.error) {
+          setError(result.error);
+        } else {
+          setError('Failed to save your email. Please try again.');
+        }
+        setIsSubmitting(false);
+        return;
+      }
+      
       // Call the onSubscribe callback if provided
       if (onSubscribe) {
         onSubscribe(email);
       }
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
       
       setIsSuccess(true);
       setEmail('');
