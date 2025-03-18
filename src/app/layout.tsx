@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import PageViewTracker from '../components/PageViewTracker';
 
-const inter = Inter({
+// Font for headings - modern, geometric, conveys precision and intelligence
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-outfit",
+  display: 'swap',
+});
+
+// Font for body text - highly readable, clean, supports learning
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -26,7 +35,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${outfit.variable} ${plusJakartaSans.variable} font-sans antialiased`}>
         <Suspense fallback={null}>
           <PageViewTracker />
         </Suspense>
