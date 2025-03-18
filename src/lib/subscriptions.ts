@@ -31,37 +31,53 @@ export async function saveSubscriber(subscriber: Subscriber): Promise<{ success:
       created_at: new Date().toISOString(),
     };
 
-    // Check if a subscribers table exists, if not, create it
-    const { error: tableError } = await supabase
-      .from('subscribers')
-      .select('email')
-      .limit(1)
-      .catch(() => ({ error: { message: 'Table does not exist' } }));
+    // Skip table check and just try to insert directly
+    try {
+      // Insert the subscriber
+      const { error } = await supabase
+        .from('subscribers')
+        .insert([subscriberWithTimestamp]);
 
-    if (tableError) {
-      console.log('Creating subscribers table...');
-      await supabase.rpc('create_subscribers_table').catch((err: Error) => {
-        console.error('Error creating table:', err);
-      });
-    }
-
-    // Insert the subscriber
-    const { error } = await supabase
-      .from('subscribers')
-      .insert([subscriberWithTimestamp]);
-
-    if (error) {
-      console.error('Error saving subscriber:', error);
-      
-      // Check if it's a duplicate key error
-      if (error.code === '23505') {
-        return { success: true, error: 'You are already subscribed!' };
+      if (error) {
+        console.error('Error saving subscriber:', error);
+        
+        // Check if it's a duplicate key error
+        if (error.code === '23505') {
+          return { success: true, error: 'You are already subscribed!' };
+        }
+        
+        return { success: false, error: error.message };
       }
-      
-      return { success: false, error: error.message };
-    }
 
-    return { success: true };
+      return { success: true };
+    } catch (insertError) {
+      console.error('Error inserting subscriber:', insertError);
+      
+      // If we get here, attempt to save the email another way - to website_clicks table
+      try {
+        // Save to the website_clicks table as a fallback
+        const { error: clickError } = await supabase
+          .from('website_clicks')
+          .insert([{
+            page_path: '/email-signup',
+            button_id: 'email_signup',
+            button_text: subscriberWithTimestamp.email,
+            section_id: subscriberWithTimestamp.source || 'email_signup',
+            user_agent: typeof window !== 'undefined' ? window.navigator.userAgent : '',
+            referrer: typeof window !== 'undefined' ? document.referrer : '',
+          }]);
+        
+        if (clickError) {
+          console.error('Error saving to website_clicks:', clickError);
+          return { success: false, error: 'Could not save your email. Please try again.' };
+        }
+        
+        return { success: true };
+      } catch (clickInsertError) {
+        console.error('Error with fallback save:', clickInsertError);
+        return { success: false, error: 'An error occurred. Please try again later.' };
+      }
+    }
   } catch (err) {
     console.error('Failed to save subscriber:', err);
     return { success: false, error: 'An unexpected error occurred' };
