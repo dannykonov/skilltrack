@@ -86,11 +86,6 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-            
-            {/* Urgency badge */}
-            <div className="absolute -top-4 -right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium transform rotate-3 shadow-lg animate-pulse-slow">
-              Early access spots limited!
-            </div>
           </div>
         </div>
       </div>
