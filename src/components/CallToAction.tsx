@@ -52,18 +52,6 @@ export default function CallToAction() {
             </div>
           </div>
         </div>
-        
-        <div className="text-center mt-12">
-          <TrackableButton
-            trackingId="cta_transform_button"
-            sectionId="cta"
-            variant="secondary"
-            size="lg"
-            onClick={scrollToEmail}
-          >
-            Transform How You Learn
-          </TrackableButton>
-        </div>
       </div>
     </section>
   );

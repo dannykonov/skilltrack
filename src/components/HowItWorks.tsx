@@ -36,14 +36,16 @@ export default function HowItWorks() {
     }
   ];
 
-  // State to track which descriptions are expanded
-  const [expandedSteps, setExpandedSteps] = useState<number[]>([]);
+  // State to track which step is expanded (single number instead of array)
+  const [expandedStep, setExpandedStep] = useState<number | null>(null);
 
   const toggleDescription = (stepNumber: number) => {
-    if (expandedSteps.includes(stepNumber)) {
-      setExpandedSteps(expandedSteps.filter(num => num !== stepNumber));
+    if (expandedStep === stepNumber) {
+      // If clicking the same step, collapse it
+      setExpandedStep(null);
     } else {
-      setExpandedSteps([...expandedSteps, stepNumber]);
+      // Otherwise expand this step (and collapse any other)
+      setExpandedStep(stepNumber);
     }
   };
 
@@ -52,7 +54,6 @@ export default function HowItWorks() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">AI-Powered Learning <span className="text-blue-600">That Works</span></h2>
-          <p className="mt-4 text-xl text-gray-600">Your path from confusion to mastery in 5 simple steps</p>
         </div>
 
         {/* Problem statement */}
@@ -75,7 +76,16 @@ export default function HowItWorks() {
           {/* Updated grid for better responsiveness */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 relative z-10">
             {steps.map((step) => (
-              <div key={step.number} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all relative h-[360px] flex flex-col">
+              <div 
+                key={step.number} 
+                className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all relative flex flex-col"
+                // Dynamic height based on expanded state
+                style={{ 
+                  height: expandedStep === step.number ? 'auto' : '240px',
+                  minHeight: '240px',
+                  transition: 'height 0.3s ease-in-out'
+                }}
+              >
                 {/* Number positioned as a badge on top left - larger and more visible */}
                 <div className="absolute -top-3 -left-3 flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full text-base font-semibold shadow-md">
                   {step.number}
@@ -89,27 +99,21 @@ export default function HowItWorks() {
                 {/* Larger title text */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">{step.title}</h3>
                 
-                {/* Description container with fixed height */}
-                <div className="flex-grow flex flex-col justify-between">
-                  <div className="description-container relative" style={{ height: '80px' }}>
-                    {expandedSteps.includes(step.number) ? (
-                      <p className="text-gray-600 text-center text-base transition-all absolute inset-0 overflow-auto py-2">
-                        {step.description}
-                      </p>
-                    ) : (
-                      <p className="text-gray-600 text-center text-base opacity-0 absolute inset-0">
-                        {step.description}
-                      </p>
-                    )}
+                {/* Description with transition */}
+                <div className="flex-grow">
+                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedStep === step.number ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <p className="text-gray-600 text-center text-base pt-2">
+                      {step.description}
+                    </p>
                   </div>
                   
-                  {/* Larger Read more / Read less button at the bottom */}
+                  {/* Read more / Read less button at the bottom */}
                   <div className="mt-auto pt-3">
                     <button 
                       onClick={() => toggleDescription(step.number)}
                       className="text-blue-600 text-sm font-medium hover:text-blue-800 transition-colors focus:outline-none flex items-center justify-center mx-auto"
                     >
-                      {expandedSteps.includes(step.number) ? (
+                      {expandedStep === step.number ? (
                         <>
                           Hide details
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
