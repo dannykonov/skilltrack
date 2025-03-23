@@ -2,8 +2,21 @@
 
 import EmailSubscribe from './EmailSubscribe';
 import Image from 'next/image';
+import { useRef } from 'react';
+import { useTracking } from '@/hooks/useTracking';
 
 export default function HeroSection() {
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const { trackClick } = useTracking({ sectionId: 'hero' });
+  
+  const scrollToEmailForm = () => {
+    const ctaSection = document.getElementById('cta');
+    if (ctaSection) {
+      ctaSection.scrollIntoView({ behavior: 'smooth' });
+      trackClick('learning_journey_cta', 'Start Your Learning Journey');
+    }
+  };
+  
   return (
     <section className="relative bg-gradient-to-b from-blue-50 to-white py-20 md:py-28 overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -108,6 +121,16 @@ export default function HeroSection() {
                   </div>
                 </div>
               </div>
+            </div>
+            
+            {/* CTA Button directly below the comparison */}
+            <div className="mt-6 text-center" ref={ctaRef}>
+              <button 
+                onClick={scrollToEmailForm}
+                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200"
+              >
+                Start Your Learning Journey
+              </button>
             </div>
           </div>
         </div>
