@@ -86,10 +86,10 @@ export default function HowItWorks() {
               <div 
                 key={step.number} 
                 className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all relative flex flex-col"
-                // Fixed height with content properly positioned
+                // Dynamic height based on expanded state
                 style={{ 
-                  height: '280px',
-                  transition: 'all 0.3s ease-in-out'
+                  height: expandedStep === step.number ? '280px' : '220px',
+                  transition: 'height 0.3s ease-in-out'
                 }}
               >
                 {/* Number positioned as a badge on top left - larger and more visible */}
@@ -98,17 +98,17 @@ export default function HowItWorks() {
                 </div>
                 
                 {/* Larger icon with improved styling */}
-                <div className="flex items-center justify-center w-24 h-24 bg-blue-50 rounded-full mb-4 text-4xl mx-auto">
+                <div className="flex items-center justify-center w-20 h-20 bg-blue-50 rounded-full mb-4 text-3xl mx-auto">
                   {step.icon}
                 </div>
                 
                 {/* Larger title text */}
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">{step.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">{step.title}</h3>
                 
                 {/* Description container */}
                 <div className="flex-grow flex flex-col justify-between">
-                  <div className={`transition-all duration-300 ease-in-out ${expandedStep === step.number ? 'h-auto opacity-100' : 'h-0 opacity-0 overflow-hidden'}`}>
-                    <p className="text-gray-600 text-center text-base">
+                  <div className={`transition-all duration-300 ease-in-out ${expandedStep === step.number ? 'h-auto max-h-32 opacity-100' : 'h-0 max-h-0 opacity-0 overflow-hidden'}`}>
+                    <p className="text-gray-600 text-center text-sm">
                       {step.description}
                     </p>
                   </div>
