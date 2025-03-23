@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function HowItWorks() {
   const steps = [
     {
@@ -34,6 +36,17 @@ export default function HowItWorks() {
     }
   ];
 
+  // State to track which descriptions are expanded
+  const [expandedSteps, setExpandedSteps] = useState<number[]>([]);
+
+  const toggleDescription = (stepNumber: number) => {
+    if (expandedSteps.includes(stepNumber)) {
+      setExpandedSteps(expandedSteps.filter(num => num !== stepNumber));
+    } else {
+      setExpandedSteps([...expandedSteps, stepNumber]);
+    }
+  };
+
   return (
     <section className="py-20 bg-gray-50" id="how-it-works">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -61,15 +74,46 @@ export default function HowItWorks() {
           
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 relative z-10">
             {steps.map((step) => (
-              <div key={step.number} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all">
+              <div key={step.number} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all relative">
+                {/* Number positioned as a badge on top left */}
+                <div className="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full text-sm font-medium shadow-md">
+                  {step.number}
+                </div>
+                
                 <div className="flex items-center justify-center w-16 h-16 bg-blue-50 rounded-full mb-4 text-2xl mx-auto">
                   {step.icon}
                 </div>
-                <div className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full text-sm font-medium mb-3 mx-auto">
-                  {step.number}
-                </div>
+                
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">{step.title}</h3>
-                <p className="text-gray-600 text-center text-sm">{step.description}</p>
+                
+                {/* Show description only when expanded */}
+                {expandedSteps.includes(step.number) && (
+                  <p className="text-gray-600 text-center text-sm mb-2 transition-all">
+                    {step.description}
+                  </p>
+                )}
+                
+                {/* Read more / Read less button */}
+                <button 
+                  onClick={() => toggleDescription(step.number)}
+                  className="text-blue-600 text-xs font-medium hover:text-blue-800 transition-colors focus:outline-none flex items-center justify-center mx-auto mt-1"
+                >
+                  {expandedSteps.includes(step.number) ? (
+                    <>
+                      Hide details
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      Read more
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </>
+                  )}
+                </button>
               </div>
             ))}
           </div>
