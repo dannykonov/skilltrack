@@ -9,10 +9,10 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight animate-fade-in">
-            You Know What You Want to Learn—We'll Show You How.
+            Stop Guessing How To Learn. <span className="text-blue-600">Start Mastering.</span>
           </h1>
           <p className="mt-6 text-xl text-gray-600 leading-relaxed animate-fade-in-delay-1">
-            You already have the ambition. But where do you start? Learn With AI builds a personalized, step-by-step roadmap so you can learn efficiently, avoid information overload, and make real progress.
+            Your AI learning coach builds personalized roadmaps that turn overwhelming subjects into clear, actionable steps—so you make real progress, fast.
           </p>
           
           {/* Trust signal */}
@@ -31,71 +31,85 @@ export default function HeroSection() {
           
           {/* Visual representation: Before vs After */}
           <div className="relative mt-12 mx-auto max-w-4xl animate-fade-in-delay-3">
-            <div className="grid md:grid-cols-2 gap-4 bg-white rounded-xl shadow-xl overflow-hidden p-4">
+            <div className="grid md:grid-cols-2 gap-4 bg-white rounded-xl shadow-xl overflow-hidden p-4 md:p-6">
               {/* Before side */}
-              <div className="bg-gray-50 rounded-lg p-4 relative">
-                <div className="absolute top-2 left-2 bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded">
+              <div className="bg-gray-50 rounded-lg p-4 relative flex flex-col h-full">
+                <div className="absolute top-3 left-3 bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded-md shadow-sm">
                   BEFORE
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Unstructured Learning</h3>
-                <div className="space-y-2">
-                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
-                    <span className="mr-2">😵‍💫</span> Too many resources, no direction
+                <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4 text-center">Unstructured Learning</h3>
+                <div className="space-y-3 flex-grow">
+                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm text-gray-600 shadow-sm flex items-center">
+                    <span className="mr-3 text-xl">😵‍💫</span> 
+                    <span>Too many resources, no direction</span>
                   </div>
-                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
-                    <span className="mr-2">⌛</span> Wasting time on random content
+                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm text-gray-600 shadow-sm flex items-center">
+                    <span className="mr-3 text-xl">⌛</span> 
+                    <span>Wasting time on random content</span>
                   </div>
-                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
-                    <span className="mr-2">❌</span> No sense of progress or achievement
+                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm text-gray-600 shadow-sm flex items-center">
+                    <span className="mr-3 text-xl">❌</span> 
+                    <span>No sense of progress or achievement</span>
                   </div>
                 </div>
-                <div className="mt-4 text-center">
-                  <div className="inline-block bg-red-50 text-red-700 text-sm px-3 py-1 rounded-full">
+                <div className="mt-5 text-center">
+                  <div className="inline-block bg-red-50 text-red-700 text-sm px-4 py-2 rounded-full font-medium shadow-sm border border-red-100">
                     Confusion, burnout & self-doubt 😣
                   </div>
                 </div>
               </div>
               
-              {/* Arrow connector for larger screens */}
-              <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="bg-gradient-to-r from-red-100 to-green-100 p-2 rounded-full shadow-md">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              {/* Animated arrow connector for larger screens */}
+              <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                <div className="bg-gradient-to-r from-red-100 via-white to-green-100 p-3 rounded-full shadow-lg border border-blue-100 animate-pulse-slow">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
                 </div>
               </div>
 
-              {/* Arrow connector for mobile */}
-              <div className="md:hidden flex justify-center my-2">
-                <div className="bg-gradient-to-b from-red-100 to-green-100 p-2 rounded-full shadow-md">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              {/* Animated arrow connector for mobile */}
+              <div className="md:hidden flex justify-center my-3">
+                <div className="bg-gradient-to-b from-red-100 via-white to-green-100 p-3 rounded-full shadow-lg border border-blue-100 animate-pulse-slow">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
                   </svg>
                 </div>
               </div>
               
               {/* After side */}
-              <div className="bg-blue-50 rounded-lg p-4 relative">
-                <div className="absolute top-2 left-2 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">
+              <div className="bg-blue-50 rounded-lg p-4 relative flex flex-col h-full">
+                <div className="absolute top-3 left-3 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-md shadow-sm">
                   AFTER
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">LearnWithAI.baby Structured Path</h3>
-                <div className="space-y-2">
-                  <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
-                    <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">1</div>
-                    <span>Clear Foundations <span className="text-xs text-green-700">(3 days – get unstuck fast)</span></span>
+                <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4 text-center">LearnWithAI.baby Structured Path</h3>
+                <div className="space-y-3 flex-grow">
+                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm">
+                    <div className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-xs font-bold shadow-sm">1</div>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Clear Foundations</span> 
+                      <span className="text-xs text-green-700">(3 days – get unstuck fast)</span>
+                    </div>
                   </div>
-                  <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
-                    <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">2</div>
-                    <span>Core Concepts <span className="text-xs text-green-700">(7 days – build real understanding)</span></span>
+                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm">
+                    <div className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-xs font-bold shadow-sm">2</div>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Core Concepts</span> 
+                      <span className="text-xs text-green-700">(7 days – build real understanding)</span>
+                    </div>
                   </div>
-                  <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
-                    <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">3</div>
-                    <span>Practical Application <span className="text-xs text-green-700">(10 days – apply & grow)</span></span>
+                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm">
+                    <div className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-xs font-bold shadow-sm">3</div>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Practical Application</span> 
+                      <span className="text-xs text-green-700">(10 days – apply & grow)</span>
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 text-center">
-                  <div className="inline-block bg-green-50 text-green-700 text-sm px-3 py-1 rounded-full">
+                <div className="mt-5 text-center">
+                  <div className="inline-block bg-green-50 text-green-700 text-sm px-4 py-2 rounded-full font-medium shadow-sm border border-green-100">
                     Clarity, momentum & confidence 🚀
                   </div>
                 </div>
