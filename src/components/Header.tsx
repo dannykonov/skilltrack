@@ -65,7 +65,7 @@ export default function Header() {
               }}
               className="px-4 py-2 text-sm"
             >
-              Start Learning Smarter
+              Learn Smarter
             </TrackableButton>
           </div>
           
@@ -128,7 +128,7 @@ export default function Header() {
               }}
               className="block w-full text-center px-3 py-2 rounded-md text-base font-medium"
             >
-              Start Learning Smarter
+              Learn Smarter
             </TrackableButton>
           </div>
         </div>

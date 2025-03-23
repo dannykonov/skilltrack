@@ -29,7 +29,7 @@ export default function CallToAction() {
           <div className="bg-white/10 rounded-lg p-6 mb-10 backdrop-blur-sm" ref={emailRef}>
             <p className="text-lg font-medium mb-2">Join 3,000+ learners already learning smarter</p>
             <EmailSubscribe 
-              buttonText="Start Learning Smarter" 
+              buttonText="Learn Smarter" 
               onSubscribe={(email) => {
                 trackClick('email_subscribe', `Email: ${email.substring(0, 3)}***`);
               }}

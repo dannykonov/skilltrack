@@ -26,7 +26,7 @@ export default function HeroSection() {
           </div>
           
           <div className="mt-8 mb-8 animate-fade-in-delay-2">
-            <EmailSubscribe buttonText="Start Learning Smarter" />
+            <EmailSubscribe buttonText="Learn Smarter" />
           </div>
           
           {/* Visual representation: Before vs After */}
@@ -40,22 +40,37 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Unstructured Learning</h3>
                 <div className="space-y-2">
                   <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
-                    <span className="mr-2">📚</span> Where do I start?
+                    <span className="mr-2">😵‍💫</span> Too many resources, no direction
                   </div>
                   <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
-                    <span className="mr-2">🤔</span> What resources are best?
+                    <span className="mr-2">⌛</span> Wasting time on random content
                   </div>
                   <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
-                    <span className="mr-2">😩</span> How do I track progress?
-                  </div>
-                  <div className="bg-white p-2 rounded border border-gray-200 text-xs text-gray-500 shadow-sm flex items-center">
-                    <span className="mr-2">⏱️</span> Am I learning efficiently?
+                    <span className="mr-2">❌</span> No sense of progress or achievement
                   </div>
                 </div>
                 <div className="mt-4 text-center">
                   <div className="inline-block bg-red-50 text-red-700 text-sm px-3 py-1 rounded-full">
-                    Confusion & Frustration 😩
+                    Confusion, burnout & self-doubt 😣
                   </div>
+                </div>
+              </div>
+              
+              {/* Arrow connector for larger screens */}
+              <div className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="bg-gradient-to-r from-red-100 to-green-100 p-2 rounded-full shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Arrow connector for mobile */}
+              <div className="md:hidden flex justify-center my-2">
+                <div className="bg-gradient-to-b from-red-100 to-green-100 p-2 rounded-full shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
                 </div>
               </div>
               
@@ -64,24 +79,24 @@ export default function HeroSection() {
                 <div className="absolute top-2 left-2 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">
                   AFTER
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Structured Learning Path</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">LearnWithAI.baby Structured Path</h3>
                 <div className="space-y-2">
                   <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">1</div>
-                    <span>Foundations (3 days)</span>
+                    <span>Clear Foundations <span className="text-xs text-green-700">(3 days – get unstuck fast)</span></span>
                   </div>
                   <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">2</div>
-                    <span>Core Concepts (7 days)</span>
+                    <span>Core Concepts <span className="text-xs text-green-700">(7 days – build real understanding)</span></span>
                   </div>
                   <div className="bg-white p-2 rounded border border-green-200 text-sm flex items-center shadow-sm">
                     <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-2 text-xs">3</div>
-                    <span>Practical Application (10 days)</span>
+                    <span>Practical Application <span className="text-xs text-green-700">(10 days – apply & grow)</span></span>
                   </div>
                 </div>
                 <div className="mt-4 text-center">
                   <div className="inline-block bg-green-50 text-green-700 text-sm px-3 py-1 rounded-full">
-                    Clear Progress & Confidence 🚀
+                    Clarity, momentum & confidence 🚀
                   </div>
                 </div>
               </div>
