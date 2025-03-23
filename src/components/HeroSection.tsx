@@ -43,21 +43,21 @@ export default function HeroSection() {
                     <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">😵‍💫</span>
                     <div className="flex flex-col">
                       <span className="font-medium">Too many resources</span>
-                      <span className="text-xs text-gray-500">no direction or structure</span>
+                      <span className="text-xs text-red-500">no direction or structure</span>
                     </div>
                   </div>
                   <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
                     <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">⌛</span>
                     <div className="flex flex-col">
                       <span className="font-medium">Wasting time</span>
-                      <span className="text-xs text-gray-500">on random content</span>
+                      <span className="text-xs text-red-500">on random content</span>
                     </div>
                   </div>
                   <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
                     <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">❌</span>
                     <div className="flex flex-col">
                       <span className="font-medium">No sense of progress</span>
-                      <span className="text-xs text-gray-500">or achievement</span>
+                      <span className="text-xs text-red-500">or achievement</span>
                     </div>
                   </div>
                 </div>
