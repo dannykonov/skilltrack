@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight animate-fade-in">
-            Stop Guessing How To Learn. <span className="text-blue-600">Start Mastering.</span>
+            Stop Guessing How To Learn. <span className="text-blue-600">Get Your Clear Path Now.</span>
           </h1>
           <p className="mt-6 text-xl text-gray-600 leading-relaxed animate-fade-in-delay-1">
             Your AI learning coach builds personalized roadmaps that turn overwhelming subjects into clear, actionable steps—so you make real progress, fast.
@@ -41,23 +41,23 @@ export default function HeroSection() {
                 <div className="space-y-3 flex-grow min-h-[150px]">
                   <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
                     <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">😵‍💫</span>
-                    <div className="flex flex-col">
+                    <div className="flex items-center">
                       <span className="font-medium">Too many resources</span>
-                      <span className="text-xs text-red-500">no direction or structure</span>
+                      <span className="text-xs text-red-500 ml-1">— no direction or structure</span>
                     </div>
                   </div>
                   <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
                     <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">⌛</span>
-                    <div className="flex flex-col">
+                    <div className="flex items-center">
                       <span className="font-medium">Wasting time</span>
-                      <span className="text-xs text-red-500">on random content</span>
+                      <span className="text-xs text-red-500 ml-1">— on random content</span>
                     </div>
                   </div>
                   <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
                     <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">❌</span>
-                    <div className="flex flex-col">
+                    <div className="flex items-center">
                       <span className="font-medium">No sense of progress</span>
-                      <span className="text-xs text-red-500">or achievement</span>
+                      <span className="text-xs text-red-500 ml-1">— or achievement</span>
                     </div>
                   </div>
                 </div>

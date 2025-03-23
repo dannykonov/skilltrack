@@ -14,8 +14,11 @@ export default function SocialProof() {
           {/* Sarah's testimonial */}
           <div className="bg-white p-8 rounded-xl shadow-md flex flex-col h-full">
             <div className="mb-4 flex items-center">
-              <div className="mr-4 h-16 w-16 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-xl">SJ</span>
+              <div className="mr-4 h-16 w-16 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-600">
+                  <circle cx="50" cy="30" r="20" fill="currentColor" />
+                  <path d="M50,50 L50,50 C66,50 80,64 80,80 L80,100 L20,100 L20,80 C20,64 34,50 50,50 Z" fill="currentColor" />
+                </svg>
               </div>
               <div className="text-left">
                 <div className="font-medium text-lg text-gray-900">Sarah J.</div>
@@ -38,8 +41,14 @@ export default function SocialProof() {
           {/* Michael's testimonial */}
           <div className="bg-white p-8 rounded-xl shadow-md flex flex-col h-full">
             <div className="mb-4 flex items-center">
-              <div className="mr-4 h-16 w-16 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-xl">MT</span>
+              <div className="mr-4 h-16 w-16 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-600">
+                  <circle cx="50" cy="30" r="20" fill="currentColor" />
+                  <path d="M50,50 L50,50 C66,50 80,64 80,80 L80,100 L20,100 L20,80 C20,64 34,50 50,50 Z" fill="currentColor" />
+                  <rect x="60" y="25" width="12" height="5" fill="currentColor" /> {/* Glasses */}
+                  <rect x="28" y="25" width="12" height="5" fill="currentColor" /> {/* Glasses */}
+                  <path d="M28,27 L60,27" stroke="currentColor" strokeWidth="2" /> {/* Glasses bridge */}
+                </svg>
               </div>
               <div className="text-left">
                 <div className="font-medium text-lg text-gray-900">Michael T.</div>
@@ -62,8 +71,12 @@ export default function SocialProof() {
           {/* Priya's testimonial */}
           <div className="bg-white p-8 rounded-xl shadow-md flex flex-col h-full">
             <div className="mb-4 flex items-center">
-              <div className="mr-4 h-16 w-16 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center">
-                <span className="text-blue-600 font-bold text-xl">PK</span>
+              <div className="mr-4 h-16 w-16 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-600">
+                  <circle cx="50" cy="30" r="20" fill="currentColor" />
+                  <path d="M50,50 L50,50 C66,50 80,64 80,80 L80,100 L20,100 L20,80 C20,64 34,50 50,50 Z" fill="currentColor" />
+                  <path d="M35,32 C35,32 40,42 50,42 C60,42 65,32 65,32" stroke="currentColor" strokeWidth="2" fill="none" /> {/* Smile */}
+                </svg>
               </div>
               <div className="text-left">
                 <div className="font-medium text-lg text-gray-900">Priya K.</div>

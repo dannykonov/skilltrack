@@ -20,7 +20,7 @@ export default function CallToAction() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-white">From Overwhelmed to</span> <span className="text-yellow-300">Mastery</span> <span className="text-white">in</span> <span className="text-yellow-300">Weeks</span>
+            <span className="text-white">From Overwhelmed to</span> <span className="text-yellow-300">Mastery</span> <span className="text-white">in Weeks</span>
           </h2>
           <p className="text-xl mb-8">
             Your AI coach builds tailored learning paths that make complex subjects simple—so you achieve in days what used to take months.
