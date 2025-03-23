@@ -38,18 +38,27 @@ export default function HeroSection() {
                   BEFORE
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4 text-center">Unstructured Learning</h3>
-                <div className="space-y-3 flex-grow">
-                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm text-gray-600 shadow-sm flex items-center">
-                    <span className="mr-3 text-xl">😵‍💫</span> 
-                    <span>Too many resources, no direction</span>
+                <div className="space-y-3 flex-grow min-h-[150px]">
+                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
+                    <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">😵‍💫</span>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Too many resources</span>
+                      <span className="text-xs text-gray-500">no direction or structure</span>
+                    </div>
                   </div>
-                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm text-gray-600 shadow-sm flex items-center">
-                    <span className="mr-3 text-xl">⌛</span> 
-                    <span>Wasting time on random content</span>
+                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
+                    <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">⌛</span>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Wasting time</span>
+                      <span className="text-xs text-gray-500">on random content</span>
+                    </div>
                   </div>
-                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm text-gray-600 shadow-sm flex items-center">
-                    <span className="mr-3 text-xl">❌</span> 
-                    <span>No sense of progress or achievement</span>
+                  <div className="bg-white p-3 rounded-md border border-gray-200 text-sm flex items-center shadow-sm h-[50px]">
+                    <span className="text-xl w-7 h-7 flex items-center justify-center mr-3">❌</span>
+                    <div className="flex flex-col">
+                      <span className="font-medium">No sense of progress</span>
+                      <span className="text-xs text-gray-500">or achievement</span>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-5 text-center">
@@ -84,28 +93,22 @@ export default function HeroSection() {
                 <div className="absolute top-3 left-3 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-md shadow-sm">
                   AFTER
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4 text-center">LearnWithAI.baby Structured Path</h3>
-                <div className="space-y-3 flex-grow">
-                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4 text-center">Structured Learning Path</h3>
+                <div className="space-y-3 flex-grow min-h-[150px]">
+                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm h-[50px]">
                     <div className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-xs font-bold shadow-sm">1</div>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Clear Foundations</span> 
-                      <span className="text-xs text-green-700">(3 days – get unstuck fast)</span>
-                    </div>
+                    <span className="font-medium">Clear Foundations</span>
+                    <span className="text-xs text-green-700 ml-1">— get unstuck fast</span>
                   </div>
-                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm">
+                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm h-[50px]">
                     <div className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-xs font-bold shadow-sm">2</div>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Core Concepts</span> 
-                      <span className="text-xs text-green-700">(7 days – build real understanding)</span>
-                    </div>
+                    <span className="font-medium">Core Concepts</span>
+                    <span className="text-xs text-green-700 ml-1">— build understanding</span>
                   </div>
-                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm">
+                  <div className="bg-white p-3 rounded-md border border-green-200 text-sm flex items-center shadow-sm h-[50px]">
                     <div className="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-xs font-bold shadow-sm">3</div>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Practical Application</span> 
-                      <span className="text-xs text-green-700">(10 days – apply & grow)</span>
-                    </div>
+                    <span className="font-medium">Practical Application</span>
+                    <span className="text-xs text-green-700 ml-1">— apply & grow</span>
                   </div>
                 </div>
                 <div className="mt-5 text-center">

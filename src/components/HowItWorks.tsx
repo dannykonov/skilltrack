@@ -135,35 +135,6 @@ export default function HowItWorks() {
             ))}
           </div>
         </div>
-        
-        {/* Learning efficiency stats */}
-        <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <div className="text-4xl font-bold text-blue-600 mb-2">3× <span className="text-blue-600 text-2xl font-semibold">Faster</span></div>
-            <p className="text-gray-700 mt-3">Learn new skills in weeks, not months</p>
-          </div>
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <div className="text-4xl font-bold text-blue-600 mb-2">78% <span className="text-blue-600 text-2xl font-semibold">Better</span></div>
-            <p className="text-gray-700 mt-3">Recall and apply what you learn</p>
-          </div>
-          <div className="bg-white p-8 rounded-xl shadow-sm">
-            <div className="text-4xl font-bold text-blue-600 mb-2">92% <span className="text-blue-600 text-2xl font-semibold">Complete</span></div>
-            <p className="text-gray-700 mt-3">Their learning goals with our system</p>
-          </div>
-        </div>
-        
-        {/* CTA button */}
-        <div className="mt-12 text-center">
-          <a 
-            href="#cta" 
-            className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 animate-pulse-slow"
-          >
-            Learn Smarter
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </a>
-        </div>
       </div>
     </section>
   );
