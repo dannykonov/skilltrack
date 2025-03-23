@@ -4,7 +4,9 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="grid md:grid-cols-4 gap-8">
+        {/* Main footer grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* First column - Learn With AI branding and stats */}
           <div className="md:col-span-2">
             <h3 className="text-xl font-bold mb-4">Learn With AI</h3>
             <p className="text-gray-400 mb-4">Learn more effectively with structured, step-by-step learning paths tailored to your goals.</p>
@@ -24,7 +26,33 @@ export default function Footer() {
             </div>
           </div>
           
-          <div>
+          {/* Mobile: Side by side columns for Resources and Company */}
+          <div className="grid grid-cols-2 md:hidden gap-8">
+            {/* Resources Column - Mobile */}
+            <div>
+              <h4 className="font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Learning Guides</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Learning Tips</a></li>
+              </ul>
+            </div>
+            
+            {/* Company Column - Mobile */}
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* Desktop: Separate columns for Resources and Company */}
+          <div className="hidden md:block">
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Learning Guides</a></li>
@@ -34,7 +62,7 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>

@@ -86,11 +86,10 @@ export default function HowItWorks() {
               <div 
                 key={step.number} 
                 className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all relative flex flex-col"
-                // Dynamic height based on expanded state
+                // Fixed height with content properly positioned
                 style={{ 
-                  height: expandedStep === step.number ? 'auto' : '240px',
-                  minHeight: '240px',
-                  transition: 'height 0.3s ease-in-out'
+                  height: '280px',
+                  transition: 'all 0.3s ease-in-out'
                 }}
               >
                 {/* Number positioned as a badge on top left - larger and more visible */}
@@ -106,19 +105,19 @@ export default function HowItWorks() {
                 {/* Larger title text */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">{step.title}</h3>
                 
-                {/* Description container with fixed height */}
-                <div className="description-container h-[80px] relative overflow-hidden flex-grow">
-                  <div className={`transition-all duration-300 ease-in-out ${expandedStep === step.number ? 'opacity-100' : 'opacity-0'}`}>
+                {/* Description container */}
+                <div className="flex-grow flex flex-col justify-between">
+                  <div className={`transition-all duration-300 ease-in-out ${expandedStep === step.number ? 'h-auto opacity-100' : 'h-0 opacity-0 overflow-hidden'}`}>
                     <p className="text-gray-600 text-center text-base">
                       {step.description}
                     </p>
                   </div>
                   
-                  {/* Read more / Read less button at the bottom */}
-                  <div className="mt-auto pt-3">
+                  {/* Read more / Read less button always visible at the bottom */}
+                  <div className="mt-auto pt-2 text-center">
                     <button 
                       onClick={() => toggleDescription(step.number)}
-                      className="text-blue-600 text-sm font-medium hover:text-blue-800 transition-colors focus:outline-none flex items-center justify-center mx-auto"
+                      className="text-blue-600 text-sm font-medium hover:text-blue-800 transition-colors focus:outline-none inline-flex items-center"
                     >
                       {expandedStep === step.number ? (
                         <>
