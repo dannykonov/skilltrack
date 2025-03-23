@@ -8,8 +8,8 @@ export default function BenefitsSection() {
       icon: "🗺️"
     },
     {
-      title: "Knowledge Gap Analysis",
-      description: "Identify exactly what you need to learn next based on your current understanding.",
+      title: "Smart Gap Analysis",
+      description: "Identify exactly what to learn next based on your understanding, ensuring optimal progress.",
       icon: "🔍"
     },
     {
@@ -19,13 +19,8 @@ export default function BenefitsSection() {
     },
     {
       title: "Curated Learning Materials",
-      description: "Access the most effective resources for each concept—no more searching endlessly.",
+      description: "Access the most effective resources for each concept—all in one place with no endless searching.",
       icon: "✅"
-    },
-    {
-      title: "All-in-One Learning Hub",
-      description: "Read, watch, and practice in one place with materials selected for your learning style.",
-      icon: "🏠"
     },
     {
       title: "Time-Optimized Learning",
@@ -33,13 +28,8 @@ export default function BenefitsSection() {
       icon: "⏱️"
     },
     {
-      title: "Collaborative Learning",
-      description: "Connect with others learning the same skills to share insights and stay motivated.",
-      icon: "👥"
-    },
-    {
-      title: "Adaptive Learning Paths",
-      description: "Your roadmap evolves based on your progress, ensuring you're always learning optimally.",
+      title: "Collaborative & Adaptive Learning",
+      description: "Connect with peers while your roadmap evolves based on your progress for optimal learning.",
       icon: "🔄"
     }
   ];
@@ -52,7 +42,7 @@ export default function BenefitsSection() {
           <p className="mt-4 text-xl text-gray-600">Learn With AI transforms how you learn with these powerful features</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="text-3xl mb-4">{benefit.icon}</div>
