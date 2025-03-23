@@ -30,6 +30,12 @@ export default function HowItWorks() {
     },
     {
       number: 5,
+      title: "Practice & Apply Skills",
+      description: "Reinforce your learning through guided practice exercises and real-world applications.",
+      icon: "💪"
+    },
+    {
+      number: 6,
       title: "Track Progress & Adapt",
       description: "Monitor your advancement while the AI adjusts your path based on your performance.",
       icon: "🚀"
@@ -54,6 +60,7 @@ export default function HowItWorks() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">AI-Powered Learning <span className="text-blue-600">That Works</span></h2>
+          <p className="mt-4 text-xl text-gray-600">Your path from confusion to mastery in 6 simple steps</p>
         </div>
 
         {/* Problem statement */}
@@ -73,8 +80,8 @@ export default function HowItWorks() {
           {/* Connection line - now responsive with multiple breakpoints */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-blue-200 -translate-y-1/2 z-0"></div>
           
-          {/* Updated grid for better responsiveness */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 relative z-10">
+          {/* Updated grid for better responsiveness - adjusted for 6 items */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
             {steps.map((step) => (
               <div 
                 key={step.number} 
@@ -99,10 +106,10 @@ export default function HowItWorks() {
                 {/* Larger title text */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">{step.title}</h3>
                 
-                {/* Description with transition */}
-                <div className="flex-grow">
-                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedStep === step.number ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <p className="text-gray-600 text-center text-base pt-2">
+                {/* Description container with fixed height */}
+                <div className="description-container h-[80px] relative overflow-hidden flex-grow">
+                  <div className={`transition-all duration-300 ease-in-out ${expandedStep === step.number ? 'opacity-100' : 'opacity-0'}`}>
+                    <p className="text-gray-600 text-center text-base">
                       {step.description}
                     </p>
                   </div>
