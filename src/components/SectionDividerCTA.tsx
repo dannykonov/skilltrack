@@ -28,7 +28,7 @@ export default function SectionDividerCTA({
   const buttonBgColor = theme === 'light' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600';
   
   return (
-    <div className={`py-8 ${bgColor} border-t border-b border-gray-100`}>
+    <div className={`py-8 ${bgColor}`}>
       <div className="container mx-auto px-4 max-w-6xl text-center">
         <button 
           onClick={handleClick}
