@@ -11,24 +11,36 @@ export default function SocialProof() {
         
         {/* Personalized Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Sarah's testimonial - Enhanced female avatar with hair and details */}
+          {/* Sarah's testimonial - More human female avatar */}
           <div className="bg-white p-8 rounded-xl shadow-md flex flex-col h-full">
             <div className="mb-4 flex items-center">
-              <div className="mr-4 h-16 w-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-inner">
-                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-600">
-                  {/* Hair */}
-                  <path d="M30,35 C30,20 40,15 50,15 C60,15 70,20 70,35 L68,50 L32,50 L30,35" fill="currentColor" opacity="0.8" />
-                  {/* Face */}
-                  <circle cx="50" cy="32" r="18" fill="currentColor" />
+              <div className="mr-4 h-16 w-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-200 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-500">
+                  {/* Background face shape */}
+                  <circle cx="50" cy="50" r="40" fill="currentColor" opacity="0.2" />
+                  
+                  {/* Friendlier face shape */}
+                  <ellipse cx="50" cy="42" rx="24" ry="26" fill="currentColor" />
+                  
+                  {/* Hairstyle with gentle curves */}
+                  <path d="M26,42 C26,25 38,16 50,16 C62,16 74,25 74,42 L74,50 C74,40 72,40 72,40 L28,40 C28,40 26,40 26,50 L26,42" fill="currentColor" opacity="0.8" />
+                  
                   {/* Neck */}
-                  <path d="M43,48 L57,48 L57,55 L43,55 Z" fill="currentColor" />
-                  {/* Body */}
-                  <path d="M40,55 L60,55 C70,55 75,65 75,80 L75,100 L25,100 L25,80 C25,65 30,55 40,55 Z" fill="currentColor" opacity="0.9" />
-                  {/* Eyes */}
-                  <ellipse cx="42" cy="30" rx="3" ry="4" fill="white" />
-                  <ellipse cx="58" cy="30" rx="3" ry="4" fill="white" />
-                  {/* Smile */}
-                  <path d="M40,38 C40,38 45,45 50,45 C55,45 60,38 60,38" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                  <path d="M42,65 L58,65 L58,72 L42,72 Z" fill="currentColor" opacity="0.9" />
+                  
+                  {/* Shoulders */}
+                  <path d="M35,72 C35,72 42,75 50,75 C58,75 65,72 65,72 L65,85 L35,85 Z" fill="currentColor" opacity="0.7" />
+                  
+                  {/* More natural eyes with eyelids */}
+                  <ellipse cx="40" cy="38" rx="3.5" ry="3" fill="white" />
+                  <ellipse cx="60" cy="38" rx="3.5" ry="3" fill="white" />
+                  <circle cx="40" cy="38" r="1.5" fill="#333" />
+                  <circle cx="60" cy="38" r="1.5" fill="#333" />
+                  <path d="M36.5,35 Q40,33 43.5,35" stroke="currentColor" fill="none" strokeWidth="0.8" opacity="0.7" />
+                  <path d="M56.5,35 Q60,33 63.5,35" stroke="currentColor" fill="none" strokeWidth="0.8" opacity="0.7" />
+                  
+                  {/* Softer, natural smile */}
+                  <path d="M40,48 C40,48 45,54 50,54 C55,54 60,48 60,48" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                 </svg>
               </div>
               <div className="text-left">
@@ -49,25 +61,41 @@ export default function SocialProof() {
             </p>
           </div>
           
-          {/* Michael's testimonial - Enhanced male avatar with modern glasses and hair */}
+          {/* Michael's testimonial - More human male avatar */}
           <div className="bg-white p-8 rounded-xl shadow-md flex flex-col h-full">
             <div className="mb-4 flex items-center">
-              <div className="mr-4 h-16 w-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-inner">
-                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-600">
-                  {/* Hair */}
-                  <path d="M30,25 C30,10 40,12 50,12 C60,12 70,15 70,25 L70,35 L30,35 L30,25" fill="currentColor" opacity="0.85" />
-                  {/* Face */}
-                  <circle cx="50" cy="35" r="18" fill="currentColor" />
+              <div className="mr-4 h-16 w-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-200 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-500">
+                  {/* Background face shape */}
+                  <circle cx="50" cy="50" r="40" fill="currentColor" opacity="0.2" />
+                  
+                  {/* Friendlier face shape */}
+                  <ellipse cx="50" cy="45" rx="26" ry="28" fill="currentColor" />
+                  
+                  {/* Shorter hair */}
+                  <path d="M26,30 C26,22 36,17 50,17 C64,17 74,22 74,30 L74,40 L26,40 L26,30" fill="currentColor" opacity="0.85" />
+                  
                   {/* Neck */}
-                  <path d="M43,52 L57,52 L57,59 L43,59 Z" fill="currentColor" />
-                  {/* Body */}
-                  <path d="M35,59 L65,59 C72,59 78,65 78,85 L78,100 L22,100 L22,85 C22,65 28,59 35,59 Z" fill="currentColor" opacity="0.9" />
-                  {/* Modern Glasses Frame */}
-                  <path d="M36,32 L46,32 Q47,32 47,33 L47,36 Q47,37 46,37 L36,37 Q35,37 35,36 L35,33 Q35,32 36,32 Z" fill="white" opacity="0.9" />
-                  <path d="M54,32 L64,32 Q65,32 65,33 L65,36 Q65,37 64,37 L54,37 Q53,37 53,36 L53,33 Q53,32 54,32 Z" fill="white" opacity="0.9" />
-                  <path d="M47,34 L53,34" stroke="white" strokeWidth="1.5" />
-                  {/* Slight beard shadow */}
-                  <path d="M40,45 C40,45 45,50 50,50 C55,50 60,45 60,45" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.3" />
+                  <path d="M42,70 L58,70 L58,77 L42,77 Z" fill="currentColor" opacity="0.9" />
+                  
+                  {/* Shoulders */}
+                  <path d="M32,77 C32,77 40,81 50,81 C60,81 68,77 68,77 L68,90 L32,90 Z" fill="currentColor" opacity="0.7" />
+                  
+                  {/* More natural eyes with eyelids */}
+                  <ellipse cx="40" cy="42" rx="3.5" ry="3" fill="white" />
+                  <ellipse cx="60" cy="42" rx="3.5" ry="3" fill="white" />
+                  <circle cx="40" cy="42" r="1.5" fill="#333" />
+                  <circle cx="60" cy="42" r="1.5" fill="#333" />
+                  <path d="M36.5,39 Q40,37 43.5,39" stroke="currentColor" fill="none" strokeWidth="0.8" opacity="0.7" />
+                  <path d="M56.5,39 Q60,37 63.5,39" stroke="currentColor" fill="none" strokeWidth="0.8" opacity="0.7" />
+                  
+                  {/* Subtle smile */}
+                  <path d="M40,52 C40,52 45,57 50,57 C55,57 60,52 60,52" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                  
+                  {/* Friendlier glasses */}
+                  <path d="M36,39 Q40,37 44,39 Q40,41 36,39" fill="white" opacity="0.9" />
+                  <path d="M56,39 Q60,37 64,39 Q60,41 56,39" fill="white" opacity="0.9" />
+                  <path d="M44,39 L56,39" stroke="white" strokeWidth="1" />
                 </svg>
               </div>
               <div className="text-left">
@@ -88,27 +116,40 @@ export default function SocialProof() {
             </p>
           </div>
           
-          {/* Priya's testimonial - Enhanced female avatar with stylish hair and earrings */}
+          {/* Priya's testimonial - More human female avatar */}
           <div className="bg-white p-8 rounded-xl shadow-md flex flex-col h-full">
             <div className="mb-4 flex items-center">
-              <div className="mr-4 h-16 w-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-inner">
-                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-600">
-                  {/* Hair with style */}
-                  <path d="M25,35 C25,15 35,12 50,12 C65,12 75,20 75,35 C75,45 72,45 72,50 L28,50 C28,45 25,45 25,35" fill="currentColor" opacity="0.8" />
-                  {/* Face */}
-                  <circle cx="50" cy="33" r="18" fill="currentColor" />
+              <div className="mr-4 h-16 w-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-200 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+                <svg viewBox="0 0 100 100" className="h-14 w-14 text-blue-500">
+                  {/* Background face shape */}
+                  <circle cx="50" cy="50" r="40" fill="currentColor" opacity="0.2" />
+                  
+                  {/* Friendlier face shape */}
+                  <ellipse cx="50" cy="42" rx="24" ry="26" fill="currentColor" />
+                  
+                  {/* Longer hairstyle with gentle curves */}
+                  <path d="M20,42 C20,25 35,16 50,16 C65,16 80,25 80,42 C80,52 78,55 76,60 L24,60 C22,55 20,52 20,42" fill="currentColor" opacity="0.8" />
+                  
                   {/* Neck */}
-                  <path d="M43,49 L57,49 L57,56 L43,56 Z" fill="currentColor" />
-                  {/* Body */}
-                  <path d="M38,56 L62,56 C70,56 75,65 75,85 L75,100 L25,100 L25,85 C25,65 30,56 38,56 Z" fill="currentColor" opacity="0.9" />
-                  {/* Eyes */}
-                  <ellipse cx="42" cy="30" rx="3" ry="3.5" fill="white" />
-                  <ellipse cx="58" cy="30" rx="3" ry="3.5" fill="white" />
-                  {/* Smile */}
-                  <path d="M40,38 C40,38 45,46 50,46 C55,46 60,38 60,38" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                  {/* Earrings */}
-                  <circle cx="26" cy="33" r="2" fill="white" />
-                  <circle cx="74" cy="33" r="2" fill="white" />
+                  <path d="M42,65 L58,65 L58,72 L42,72 Z" fill="currentColor" opacity="0.9" />
+                  
+                  {/* Shoulders */}
+                  <path d="M35,72 C35,72 42,76 50,76 C58,76 65,72 65,72 L65,85 L35,85 Z" fill="currentColor" opacity="0.7" />
+                  
+                  {/* More natural eyes with eyelids */}
+                  <ellipse cx="40" cy="38" rx="3.5" ry="3" fill="white" />
+                  <ellipse cx="60" cy="38" rx="3.5" ry="3" fill="white" />
+                  <circle cx="40" cy="38" r="1.5" fill="#333" />
+                  <circle cx="60" cy="38" r="1.5" fill="#333" />
+                  <path d="M36.5,35 Q40,33 43.5,35" stroke="currentColor" fill="none" strokeWidth="0.8" opacity="0.7" />
+                  <path d="M56.5,35 Q60,33 63.5,35" stroke="currentColor" fill="none" strokeWidth="0.8" opacity="0.7" />
+                  
+                  {/* Natural smile */}
+                  <path d="M40,48 C40,48 45,54 50,54 C55,54 60,48 60,48" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                  
+                  {/* Subtle earrings */}
+                  <circle cx="22" cy="42" r="1.5" fill="white" />
+                  <circle cx="78" cy="42" r="1.5" fill="white" />
                 </svg>
               </div>
               <div className="text-left">
