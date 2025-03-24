@@ -2,8 +2,8 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <footer className="bg-gray-900 text-white py-12 relative overflow-hidden">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         {/* Main footer grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* First column - Learn With AI branding and stats */}

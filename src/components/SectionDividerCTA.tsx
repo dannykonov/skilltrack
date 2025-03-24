@@ -28,8 +28,8 @@ export default function SectionDividerCTA({
   const buttonBgColor = theme === 'light' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600';
   
   return (
-    <div className={`${bgColor}`}>
-      <div className="container mx-auto px-4 max-w-6xl text-center">
+    <div className={`${bgColor} relative overflow-hidden`}>
+      <div className="container mx-auto px-4 max-w-6xl text-center relative z-10">
         <div className="pt-1 pb-4">
           <button 
             onClick={handleClick}

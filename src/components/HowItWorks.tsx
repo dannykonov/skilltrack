@@ -56,15 +56,15 @@ export default function HowItWorks() {
   };
 
   return (
-    <section className="py-20 bg-gray-50" id="how-it-works">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section className="py-20 bg-gray-50 relative overflow-hidden" id="how-it-works">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">AI-Powered Learning <span className="text-blue-600">That Works</span></h2>
           <p className="mt-4 text-xl text-gray-600">Your path from confusion to mastery in 6 simple steps</p>
         </div>
 
         {/* Problem statement */}
-        <div className="max-w-3xl mx-auto mb-16 bg-white p-8 rounded-xl shadow-md">
+        <div className="max-w-3xl mx-auto mb-16 bg-white p-8 rounded-xl shadow-md relative">
           <h3 className="text-2xl font-semibold text-red-600 mb-4">The Challenge</h3>
           <p className="text-lg text-gray-700">
             Learning anything new means drowning in endless resources with no clear starting point. Most learners waste time, lose momentum, and quit before seeing results.

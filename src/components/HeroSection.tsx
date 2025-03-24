@@ -59,13 +59,23 @@ export default function HeroSection() {
   
   return (
     <section className="relative bg-gradient-to-b from-blue-50 to-white py-20 md:py-28 overflow-hidden">
-      <div className="container mx-auto px-4 max-w-6xl">
+      {/* Decorative elements positioned behind content */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
+        {/* Abstract shapes for visual interest */}
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/4 w-60 h-60 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight animate-fade-in">
-            Stop Guessing How To Learn. <span className="text-blue-600">Get Your Clear Path Now.</span>
+            <span className="text-blue-600">AI-Guided</span> Learning<br className="hidden sm:inline" /> 
+            For Any Skill
           </h1>
           <p className="mt-6 text-xl text-gray-600 leading-relaxed animate-fade-in-delay-1">
-            Your AI learning coach builds personalized roadmaps that turn overwhelming subjects into clear, actionable steps—so you make real progress, fast.
+            Find your way through the maze of online courses with personalized learning paths tailored to your goals.
+            Our AI-powered roadmaps help you learn efficiently and achieve results faster.
           </p>
           
           {/* Interactive Learning Input */}
@@ -183,11 +193,6 @@ export default function HeroSection() {
         onClose={handleCloseModal}
         learningGoal={learningGoal}
       />
-      
-      {/* Abstract shapes for visual interest */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-      <div className="absolute top-40 right-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-20 left-1/4 w-60 h-60 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
     </section>
   );
 } 

@@ -16,8 +16,8 @@ export default function CallToAction() {
   };
   
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white" id="cta">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white relative overflow-hidden" id="cta">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-white">From Overwhelmed to</span> <span className="text-yellow-300">Mastery</span> <span className="text-white">in Weeks</span>
@@ -26,7 +26,7 @@ export default function CallToAction() {
             Your AI coach builds tailored learning paths that make complex subjects simple—so you achieve in days what used to take months.
           </p>
           
-          <div className="bg-white/10 rounded-lg p-6 mb-10 backdrop-blur-sm" ref={emailRef}>
+          <div className="bg-white/10 rounded-lg p-6 mb-10 backdrop-blur-sm relative" ref={emailRef}>
             <p className="text-lg font-medium mb-2">Join 3,000+ learners accelerating their progress</p>
             <EmailSubscribe 
               buttonText="Learn Smarter" 
@@ -38,7 +38,7 @@ export default function CallToAction() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* First testimonial */}
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm relative">
               <div className="flex items-start">
                 <div className="mr-3 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,7 +55,7 @@ export default function CallToAction() {
             </div>
             
             {/* Second testimonial */}
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm relative">
               <div className="flex items-start">
                 <div className="mr-3 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,7 +72,7 @@ export default function CallToAction() {
             </div>
             
             {/* Third testimonial */}
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm relative">
               <div className="flex items-start">
                 <div className="mr-3 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -89,7 +89,7 @@ export default function CallToAction() {
             </div>
             
             {/* Fourth testimonial */}
-            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/10 p-5 rounded-lg backdrop-blur-sm relative">
               <div className="flex items-start">
                 <div className="mr-3 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
