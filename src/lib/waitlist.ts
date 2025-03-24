@@ -25,6 +25,9 @@ export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<{ success
       return { success: false, error: 'Database connection not available' };
     }
 
+    // Handle anonymous emails (for users who cancel)
+    const isAnonymous = entry.email.includes('anonymous');
+    
     // Add creation timestamp
     const entryWithTimestamp = {
       ...entry,
@@ -40,9 +43,19 @@ export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<{ success
       if (error) {
         console.error('Error saving waitlist entry:', error);
         
-        // Check if it's a duplicate key error
+        // For duplicate email errors
         if (error.code === '23505') {
-          return { success: true, error: 'You are already on the waitlist!' };
+          // Only show this message for real email addresses, not anonymous ones
+          if (!isAnonymous) {
+            return { success: true, error: 'You are already on the waitlist!' };
+          } else {
+            // For anonymous entries that conflict, try again with a different random email
+            const newEmail = `anonymous-${Date.now()}-${Math.random().toString(36).substring(2, 15)}@user.com`;
+            return saveWaitlistEntry({
+              ...entry,
+              email: newEmail
+            });
+          }
         }
         
         return { success: false, error: error.message };
@@ -58,9 +71,10 @@ export async function saveWaitlistEntry(entry: WaitlistEntry): Promise<{ success
           .from('subscribers')
           .insert([{
             email: entry.email,
-            source: 'learning_roadmap_waitlist',
+            source: isAnonymous ? 'learning_interest_only' : 'learning_roadmap_waitlist',
             metadata: {
               learning_goal: entry.learning_goal,
+              is_anonymous: isAnonymous,
               ...entry.metadata
             }
           }]);
