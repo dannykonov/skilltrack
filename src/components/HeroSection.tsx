@@ -2,12 +2,52 @@
 
 import EmailSubscribe from './EmailSubscribe';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useTracking } from '@/hooks/useTracking';
+import AutoTypeInput from './AutoTypeInput';
+import WaitlistModal from './WaitlistModal';
 
 export default function HeroSection() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const { trackClick } = useTracking({ sectionId: 'hero' });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [learningGoal, setLearningGoal] = useState('');
+  
+  // List of learning goals to rotate through in the auto-typing effect
+  const learningGoals = [
+    "Python", "JavaScript", "Machine Learning", "UI/UX Design", "How to start a business", 
+    "Public Speaking", "How to build an app", "Investment basics", "Product Management", 
+    "Figma", "Adobe Illustrator", "3D modeling", "Photography", "Video editing", 
+    "Writing a novel", "Singing", "Music production", "How to build a startup", 
+    "How to freelance", "Creating a podcast", "Meditation", "Emotional Intelligence", 
+    "Time management", "Productivity hacks", "Stoicism", "Personal branding", 
+    "Marketing funnels", "TikTok growth", "YouTube growth", "E-commerce", 
+    "Crypto basics", "Web3 development", "Prompt engineering", "Data Analysis", 
+    "SQL", "No-code tools", "Automations with Zapier", "Excel for finance", 
+    "Ethical hacking", "Cybersecurity", "Biology", "Physics", "Philosophy", 
+    "History of Rome", "Psychology", "Game Development", "AR/VR", "Blockchain", 
+    "Robotics", "Mathematics", "Algorithms", "CompSci fundamentals", "How to draw", 
+    "Learn Japanese", "Learn Spanish", "Speed reading", "Negotiation", "How to network", 
+    "How to pitch", "Startup fundraising", "Climate science", "AI Safety", 
+    "Quantum Computing", "Linux basics", "Docker", "Kubernetes", "How to design logos", 
+    "Sales", "Cold emailing", "Customer discovery", "Scrum methodology", 
+    "Agile workflows", "Notion workflows", "Career switch to tech", "Financial literacy", 
+    "Personal finance", "How to plan events", "Interior design", "Travel planning", 
+    "How to build habits", "Healthy cooking", "Fitness training", "How to journal", 
+    "How to build a blog", "SEO", "Google Ads", "How to run Facebook ads", 
+    "Design thinking", "Creative problem solving", "Critical thinking", "Logical reasoning", 
+    "Storytelling", "Resume writing", "Job interview prep", "LinkedIn profile", 
+    "Freelance copywriting", "Voice acting", "Acting", "How to build a personal website"
+  ];
+
+  const handleLearningGoalSubmit = (value: string) => {
+    setLearningGoal(value);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   
   const scrollToEmailForm = () => {
     const ctaSection = document.getElementById('cta');
@@ -28,6 +68,16 @@ export default function HeroSection() {
             Your AI learning coach builds personalized roadmaps that turn overwhelming subjects into clear, actionable steps—so you make real progress, fast.
           </p>
           
+          {/* Interactive Learning Input */}
+          <div className="mt-8 mb-6 animate-fade-in-delay-1 max-w-2xl mx-auto">
+            <h2 className="text-xl mb-4 text-gray-700">What do you want to learn?</h2>
+            <AutoTypeInput 
+              placeholders={learningGoals}
+              onSubmit={handleLearningGoalSubmit}
+              buttonText="Generate My Roadmap"
+            />
+          </div>
+          
           {/* Trust signal */}
           <div className="mt-4 flex items-center justify-center text-gray-500 animate-fade-in-delay-1">
             <span className="inline-flex items-center">
@@ -38,12 +88,13 @@ export default function HeroSection() {
             </span>
           </div>
           
-          <div className="mt-8 mb-8 animate-fade-in-delay-2">
-            <EmailSubscribe buttonText="Learn Smarter" />
+          {/* Visual representation: Before vs After */}
+          <div className="mt-16 mb-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">See the Difference</h2>
+            <p className="mt-2 text-lg text-gray-600">How our structured approach transforms your learning journey</p>
           </div>
           
-          {/* Visual representation: Before vs After */}
-          <div className="relative mt-12 mx-auto max-w-4xl animate-fade-in-delay-3">
+          <div className="relative mt-6 mx-auto max-w-4xl animate-fade-in-delay-3">
             <div className="grid md:grid-cols-2 gap-4 bg-white rounded-xl shadow-xl overflow-hidden p-4 md:p-6">
               {/* Before side */}
               <div className="bg-gray-50 rounded-lg p-4 relative flex flex-col h-full">
@@ -125,6 +176,13 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      
+      {/* Modal for email collection */}
+      <WaitlistModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal}
+        learningGoal={learningGoal}
+      />
       
       {/* Abstract shapes for visual interest */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
