@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { trackButtonClick } from '@/lib/tracking';
 import TrackableButton from './TrackableButton';
 
@@ -23,10 +24,17 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link 
               href="/" 
-              className="text-xl font-bold text-blue-600"
-              onClick={() => trackButtonClick('logo', 'Learn With AI', 'header')}
+              className="flex items-center"
+              onClick={() => trackButtonClick('logo', 'SkillTrack', 'header')}
             >
-              Learn With AI
+              <Image 
+                src="/images/logo/logolearnwithai-2.png" 
+                alt="SkillTrack Logo" 
+                width={40} 
+                height={40} 
+                priority
+              />
+              <span className="ml-2 text-xl font-bold text-blue-600">SkillTrack</span>
             </Link>
           </div>
           

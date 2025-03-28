@@ -22,7 +22,10 @@ export const metadata: Metadata = {
   title: "Learn With AI - Master Any Skill with a Clear Learning Strategy",
   description: "Learn With AI creates a personalized, step-by-step roadmap that shows you exactly HOW to learn efficiently and effectively.",
   keywords: ["AI learning", "skill development", "personalized learning", "learning paths", "education technology"],
-};
+  icons: [
+    { rel: "icon", url: "/images/logo/logolearnwithai-2.png" }
+  ]
+}
 
 export default function RootLayout({
   children,
@@ -32,8 +35,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon-ai-learning.svg" type="image/svg+xml" />
-        <link rel="alternate icon" href="/favicon.ico" />
       </head>
       <body className={`${outfit.variable} ${plusJakartaSans.variable} font-sans antialiased`}>
         <Suspense fallback={null}>

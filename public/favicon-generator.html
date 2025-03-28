@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Favicon Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    canvas { border: 1px solid #ddd; margin: 20px 0; }
+    button { padding: 10px; background: #0070f3; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Favicon Generator</h1>
+  <p>This tool creates a favicon from the logo.</p>
+  
+  <img id="sourceImage" src="/images/logo/logolearnwithai-2.png" style="max-width: 300px; display: block; margin: 20px 0;">
+  
+  <canvas id="faviconCanvas" width="32" height="32"></canvas>
+  
+  <button id="generateBtn">Generate and Download Favicon</button>
+  
+  <script>
+    document.getElementById('generateBtn').addEventListener('click', function() {
+      const canvas = document.getElementById('faviconCanvas');
+      const ctx = canvas.getContext('2d');
+      const img = document.getElementById('sourceImage');
+      
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw image to canvas, scaling it to fit
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      
+      // Convert to data URL
+      const dataUrl = canvas.toDataURL('image/png');
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.download = 'favicon.ico';
+      link.href = dataUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+</body>
+</html> 
