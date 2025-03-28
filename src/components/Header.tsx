@@ -25,16 +25,16 @@ export default function Header() {
             <Link 
               href="/" 
               className="flex items-center"
-              onClick={() => trackButtonClick('logo', 'SkillTrack', 'header')}
+              onClick={() => trackButtonClick('logo', 'Learn With AI', 'header')}
             >
               <Image 
                 src="/images/logo/logolearnwithai-2.png" 
-                alt="SkillTrack Logo" 
+                alt="Learn With AI Logo" 
                 width={40} 
                 height={40} 
                 priority
               />
-              <span className="ml-2 text-xl font-bold text-blue-600">SkillTrack</span>
+              <span className="ml-2 text-xl font-bold text-blue-600">Learn With AI</span>
             </Link>
           </div>
           
