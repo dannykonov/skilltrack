@@ -65,6 +65,15 @@ export default function Header() {
           
           {/* CTA Button */}
           <div className="hidden md:block">
+            <a 
+              href="https://app.learnwithai.baby" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block mr-4 px-4 py-2 rounded-md bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors"
+              onClick={() => trackButtonClick('demo_button', 'Demo', 'header')}
+            >
+              Demo
+            </a>
             <TrackableButton
               trackingId="header_cta"
               sectionId="header"
@@ -127,6 +136,15 @@ export default function Header() {
             >
               Testimonials
             </Link>
+            <a 
+              href="https://app.learnwithai.baby" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+              onClick={() => handleNavClick('mobile_demo', 'Demo')}
+            >
+              Demo
+            </a>
             <TrackableButton
               trackingId="mobile_header_cta"
               sectionId="header"
